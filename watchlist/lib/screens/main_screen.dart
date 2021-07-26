@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watchlist_1/database/movie_database.dart';
 import 'package:watchlist_1/database/movie_model.dart';
-import 'package:watchlist_1/screens/about_screen.dart';
 import 'package:watchlist_1/screens/db_movie_details.dart';
 import 'package:watchlist_1/screens/listing_screen.dart';
 import 'dart:async';
@@ -89,20 +88,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                             )),
                         Padding(padding: EdgeInsets.all(160)),
-                        Container(
-                            width: 300,
-                            height: 60,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.blue),
-                              child: Icon(Icons.info),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => AboutScreen()));
-                              },
-                            ))
                       ]),
                     )),
       bottomNavigationBar: BottomNavigationBar(

@@ -18,19 +18,11 @@ class _SearchScreenState extends State<SearchScreen> {
   late Future<List<MovieForListing>> movies;
   String? _searchItem = " ";
 
-  //int _currentIndex = 0;
-
   final List<Widget> _children = [
     HomeScreen(),
     SearchScreen(),
     ListingScreen(),
   ];
-
-  /* void _getData() async {
-    movies = (await omdbManager.getMoviesBySearch(_searchItem!))
-        as Future<List<MovieForListing>>;
-  }
-  */
 
   void onTabTapped(int index) {
     setState(() {
