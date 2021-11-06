@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.watchlist_1">
+    package="com.example.watchlist">
    <application
-        android:label="watchlist_1"
+        android:label="watchlist"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

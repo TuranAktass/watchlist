@@ -7,6 +7,6 @@
     <!-- <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap-hdpi/ic_launcher.png" />
+            android:src="@mipmap/launch_image" />
     </item> -->
 </layer-list>

@@ -1,4 +1,4 @@
-# watchlist_1
+# watchlist
 
 A new Flutter project.
 
