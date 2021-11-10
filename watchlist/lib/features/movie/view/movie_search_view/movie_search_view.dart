@@ -4,8 +4,8 @@ import '../../viewmodel/movie_search/movie_search_view_model.dart';
 import 'components/header.dart';
 import 'components/search_results_listview.dart';
 
-class MovieView extends StatelessWidget {
-  MovieView({Key? key}) : super(key: key);
+class MovieSearchView extends StatelessWidget {
+  MovieSearchView({Key? key}) : super(key: key);
 
   final MovieViewModel _viewModel = MovieViewModel();
   @override

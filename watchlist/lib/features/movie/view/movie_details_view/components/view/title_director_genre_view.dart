@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 
-import '../../../../../../core/constants/const_padding.dart';
 import '../../../../../../core/constants/const_text_style.dart';
 import '../card/genre_card.dart';
 

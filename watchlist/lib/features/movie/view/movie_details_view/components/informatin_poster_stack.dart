@@ -20,7 +20,6 @@ class InformationAndPosterView extends StatelessWidget {
   String formatRunTime(String minutes) {
     var arr = minutes.split('min');
     int minute = int.parse(arr[0]);
-    print(minute);
     int hour = 0;
 
     do {

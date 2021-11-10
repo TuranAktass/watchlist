@@ -37,6 +37,9 @@ dependencies:
   #Load configuration at runtime from a .env file which can be used throughout the application.
   flutter_dotenv: ^5.0.2
 
+  swipebuttonflutter: ^1.0.0
+
+  sqflite: ^2.0.0+4
 
   build_runner: ^2.1.4
   flutter_mobx: ^2.0.2

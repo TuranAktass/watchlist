@@ -29,4 +29,10 @@ class TextStyles {
       .textTheme
       .headline4!
       .copyWith(color: Colors.white70, fontWeight: FontWeight.w500);
+  static b1white70(BuildContext context) =>
+      Theme.of(context).textTheme.bodyText1!.copyWith(
+            color: Colors.white70,
+            fontSize: 24,
+            fontWeight: FontWeight.w400,
+          );
 }

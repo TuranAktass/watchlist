@@ -1,4 +1,6 @@
-class MovieModel {
+import 'base_model.dart';
+
+class MovieModel extends BaseMovieModel {
   String? title;
   String? year;
   String? rated;
@@ -50,9 +52,10 @@ class MovieModel {
       this.boxOffice,
       this.production,
       this.website,
-      this.response});
+      this.response})
+      : super.fromJson();
 
-  MovieModel.fromJson(Map<String, dynamic> json) {
+  MovieModel.fromJson(Map<String, dynamic> json) : super.fromJson() {
     title = json['Title'];
     year = json['Year'];
     rated = json['Rated'];

@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_dotenv/flutter_dotenv.dart' as env;
 
-import 'features/movie/view/movie_search_view/movie_search_view.dart';
+import 'features/movie/view/home_view/home_view.dart';
 
 Future main() async {
   await env.dotenv.load(fileName: '.env');
@@ -13,6 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Watchlist', home: MovieView());
+    return const MaterialApp(
+      title: 'Watchlist',
+      home: HomeView(),
+    );
   }
 }
