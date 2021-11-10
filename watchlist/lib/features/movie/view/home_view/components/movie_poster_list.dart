@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:watchlist/core/database/database_manager.dart';
 import 'package:watchlist/features/movie/view/movie_details_view/movie_details_view.dart';
 import 'package:watchlist/features/movie/viewmodel/home/home_view_model.dart';
 

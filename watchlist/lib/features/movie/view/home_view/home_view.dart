@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:watchlist/features/movie/view/movie_search_view/movie_search_view.dart';
 
 import '../../../../core/color/constant_colors.dart';
 import '../../viewmodel/home/home_view_model.dart';
@@ -36,7 +37,21 @@ class _HomeViewState extends State<HomeView> {
             const Expanded(flex: 1, child: TextWithIconButton()),
             Expanded(
               flex: 2,
-              child: Container(),
+              child: Column(
+                children: [
+                  ElevatedButton(
+                      child: const Text(
+                        "Search",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MovieSearchView()));
+                      })
+                ],
+              ),
             ),
           ],
         ),

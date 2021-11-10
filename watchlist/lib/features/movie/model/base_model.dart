@@ -18,8 +18,27 @@ abstract class BaseMovieModel {
   double? userRating;
   String? userComment;
 
-  BaseMovieModel();
+  BaseMovieModel.withFields({
+    required this.id,
+    required this.title,
+    required this.year,
+    required this.released,
+    required this.runtime,
+    required this.genre,
+    required this.director,
+    required this.writer,
+    required this.actors,
+    required this.plot,
+    required this.language,
+    required this.poster,
+    required this.imdbRating,
+    required this.response,
+    required this.isWatched,
+    required this.userRating,
+    required this.userComment,
+  });
 
+  BaseMovieModel();
   Map<String, dynamic> toJson();
   BaseMovieModel.fromJson();
 }

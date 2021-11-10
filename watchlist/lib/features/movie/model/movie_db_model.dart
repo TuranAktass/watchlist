@@ -43,47 +43,43 @@ class MovieFields {
 }
 
 class MovieDbModel extends BaseMovieModel {
-  //this data fields are fetching from omdb api
-
-  int? id;
-  String? title;
-  String? year;
-  String? released;
-  String? runtime;
-  String? genre;
-  String? director;
-  String? writer;
-  String? actors;
-  String? plot;
-  String? language;
-  String? poster;
-  String? imdbRating;
-  String? response;
-  //this data fields will be filled by the user
-  bool? isWatched;
-  double? userRating;
-  String? userComment;
-
-  MovieDbModel({
-    this.id,
-    this.title,
-    this.year,
-    this.released,
-    this.runtime,
-    this.genre,
-    this.director,
-    this.writer,
-    this.actors,
-    this.plot,
-    this.language,
-    this.poster,
-    this.imdbRating,
-    this.response,
-    //user
-    this.isWatched,
-    this.userRating,
-    this.userComment,
-  });
+  MovieDbModel.withFields({
+    required int id,
+    required String title,
+    required String year,
+    required String released,
+    required String runtime,
+    required String genre,
+    required String director,
+    required String writer,
+    required String actors,
+    required String plot,
+    required String language,
+    required String poster,
+    required String imdbRating,
+    required String response,
+    required bool isWatched,
+    required double userRating,
+    required String userComment,
+  }) : super.withFields(
+          id: id,
+          title: title,
+          year: year,
+          released: released,
+          runtime: runtime,
+          genre: genre,
+          director: director,
+          writer: writer,
+          actors: actors,
+          plot: plot,
+          language: language,
+          poster: poster,
+          imdbRating: imdbRating,
+          response: response,
+          isWatched: isWatched,
+          userRating: userRating,
+          userComment: userComment,
+        );
 
   MovieDbModel copyWith({
     int? id,
@@ -105,25 +101,25 @@ class MovieDbModel extends BaseMovieModel {
     double? userRating,
     String? userComment,
   }) =>
-      MovieDbModel(
-        id: id ?? this.id,
-        title: title ?? this.title,
-        year: year ?? this.year,
-        released: released ?? this.released,
-        runtime: runtime ?? this.runtime,
-        genre: genre ?? this.genre,
-        director: director ?? this.director,
-        writer: writer ?? this.writer,
-        actors: actors ?? this.actors,
-        plot: plot ?? this.plot,
-        language: language ?? this.language,
-        poster: poster ?? this.poster,
-        imdbRating: imdbRating ?? this.imdbRating,
-        response: response ?? this.response,
+      MovieDbModel.withFields(
+        id: id ?? this.id!,
+        title: title ?? this.title!,
+        year: year ?? this.year!,
+        released: released ?? this.released!,
+        runtime: runtime ?? this.runtime!,
+        genre: genre ?? this.genre!,
+        director: director ?? this.director!,
+        writer: writer ?? this.writer!,
+        actors: actors ?? this.actors!,
+        plot: plot ?? this.plot!,
+        language: language ?? this.language!,
+        poster: poster ?? this.poster!,
+        imdbRating: imdbRating ?? this.imdbRating!,
+        response: response ?? this.response!,
         //user
-        isWatched: isWatched ?? this.isWatched,
-        userRating: userRating ?? this.userRating,
-        userComment: userComment ?? this.userComment,
+        isWatched: isWatched ?? this.isWatched!,
+        userRating: userRating ?? this.userRating!,
+        userComment: userComment ?? this.userComment!,
       );
 
   MovieDbModel.fromJson(Map<String, dynamic> json) {
