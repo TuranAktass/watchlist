@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import 'package:watchlist/core/color/constant_colors.dart';
+import '../../../../../../core/constants/color/constant_colors.dart';
+
 import 'package:watchlist/core/constants/const_text_style.dart';
 
 class GenreCard extends StatelessWidget {

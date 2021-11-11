@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:watchlist/core/color/constant_colors.dart';
+import '../../../../../../core/constants/color/constant_colors.dart';
 
 class TextStyles {
   static h6white38(BuildContext context) =>

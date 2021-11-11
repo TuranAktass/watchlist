@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-import '../../../../../../core/color/constant_colors.dart';
+import '../../../../../../core/constants/color/constant_colors.dart';
 
 class LeftArrowButton extends StatelessWidget {
   const LeftArrowButton({

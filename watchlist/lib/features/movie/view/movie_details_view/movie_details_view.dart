@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 
-import '../../../../core/color/constant_colors.dart';
+import '../../../../core/constants/color/constant_colors.dart';
 import '../../../../core/constants/const_padding.dart';
 import '../../model/base_model.dart';
 import '../../model/movie_db_model.dart';

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:watchlist/core/components/navigation/nav_bar_alt.dart';
 
 import '../../viewmodel/movie_search/movie_search_view_model.dart';
 import 'components/header.dart';
@@ -15,17 +16,18 @@ class MovieSearchView extends StatelessWidget {
       _viewModel.setContext(context);
     }
     return Scaffold(
+        bottomNavigationBar: const AltNavBar(routeIndex: 1),
         body: Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        HeaderWithSearchBox(size: size, viewModel: _viewModel),
-        Expanded(
-          child: SearchResultsListView(
-            viewModel: _viewModel,
-          ),
-        ),
-      ],
-    ));
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            HeaderWithSearchBox(size: size, viewModel: _viewModel),
+            Expanded(
+              child: SearchResultsListView(
+                viewModel: _viewModel,
+              ),
+            ),
+          ],
+        ));
   }
 }

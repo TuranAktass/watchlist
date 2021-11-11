@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import 'package:watchlist/features/movie/view/movie_search_view/movie_search_view.dart';
 
-import '../../../../core/color/constant_colors.dart';
+import '../../../../core/components/navigation/nav_bar_alt.dart';
+import '../../../../core/constants/color/constant_colors.dart';
 import '../../viewmodel/home/home_view_model.dart';
 import 'components/header_row.dart';
 import 'components/movie_poster_list.dart';
@@ -23,39 +23,25 @@ class _HomeViewState extends State<HomeView> {
       _viewModel.setContext(context);
     }
     return Scaffold(
-        body: Container(
-      color: backgroundDark,
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: [
-            const Expanded(flex: 1, child: HeaderRow()),
-            Expanded(
-              flex: 2,
-              child: MoviePosterList(viewModel: _viewModel),
-            ),
-            const Expanded(flex: 1, child: TextWithIconButton()),
-            Expanded(
-              flex: 2,
-              child: Column(
-                children: [
-                  ElevatedButton(
-                      child: const Text(
-                        "Search",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MovieSearchView()));
-                      })
-                ],
-              ),
-            ),
-          ],
+        bottomNavigationBar: const AltNavBar(
+          routeIndex: 0,
         ),
-      ),
-    ));
+        body: Container(
+          color: backgroundDark,
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              children: [
+                const Expanded(flex: 1, child: HeaderRow()),
+                Expanded(
+                  flex: 2,
+                  child: MoviePosterList(viewModel: _viewModel),
+                ),
+                const Expanded(flex: 1, child: TextWithIconButton()),
+                Expanded(flex: 2, child: Container()),
+              ],
+            ),
+          ),
+        ));
   }
 }
