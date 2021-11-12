@@ -19,7 +19,7 @@ class MovieDatabase {
     final databasePath = await getDatabasesPath();
     final path = join(databasePath, dbName);
 
-    return await openDatabase(path, version: 2, onCreate: _onCreate);
+    return await openDatabase(path, version: 5, onCreate: _onCreate);
   }
 
   Future _onCreate(Database db, int version) {
@@ -79,10 +79,21 @@ class MovieDatabase {
     return result.map((json) => MovieDbModel.fromJson(json)).toList();
   }
 
-  Future<int> update(MovieDbModel movie) async {
+  Future<void> setWatched(MovieDbModel movie) async {
     final db = await database;
-    return await db.update(tableMovies, movie.toJson(),
-        where: '${MovieFields.id} = ?', whereArgs: [movie.id]);
+    await db.rawQuery(
+        'UPDATE $tableMovies SET ${MovieFields.isWatched}=true WHERE ${MovieFields.id}=${movie.id}');
+  }
+
+  Future<List<MovieDbModel>> readWatchedMovies() async {
+    final db = await instance.database;
+
+    const orderBy = '${MovieFields.id} DESC';
+
+    final result = await db.query(tableMovies,
+        where: '${MovieFields.isWatched}=1', orderBy: orderBy);
+
+    return result.map((json) => MovieDbModel.fromJson(json)).toList();
   }
 
   Future<int> delete(int id) async {
@@ -92,6 +103,11 @@ class MovieDatabase {
   }
 
   Future<int> deleteAll() async {
+    final db = await database;
+    return await db.delete(tableMovies);
+  }
+
+  Future<int> deleteDatabase() async {
     final db = await database;
     return await db.delete(tableMovies);
   }

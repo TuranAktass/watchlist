@@ -28,6 +28,13 @@ abstract class _MovieDbListViewModelBase with Store {
     list = await MovieDatabase.instance.readAllMovies();
     pageLifes = LifeState.done;
   }
+
+  @action
+  Future<void> getWatchedMovies() async {
+    pageLifes = LifeState.loading;
+    list = await MovieDatabase.instance.readWatchedMovies();
+    pageLifes = LifeState.done;
+  }
 }
 
 enum LifeState {

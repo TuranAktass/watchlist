@@ -25,12 +25,19 @@ class MovieDbListView extends StatelessWidget {
         color: backgroundDark,
         child: Column(
           children: [
-            // ElevatedButton(
-            //   child: Text('Delete all'),
-            //   onPressed: () {
-            //     MovieDatabase.instance.deleteAll();
-            //   },
-            // ),
+            ElevatedButton(
+              child: const Text('show watched movies'),
+              onPressed: () async {
+                _viewModel.list =
+                    await MovieDatabase.instance.readWatchedMovies();
+              },
+            ),
+            ElevatedButton(
+              child: const Text('drop db'),
+              onPressed: () async {
+                await MovieDatabase.instance.deleteDatabase();
+              },
+            ),
             const Padding(padding: padding20),
             SizedBox(
                 child: Center(

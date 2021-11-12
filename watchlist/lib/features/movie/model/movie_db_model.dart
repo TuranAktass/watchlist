@@ -58,7 +58,7 @@ class MovieDbModel extends BaseMovieModel {
     required String poster,
     required String imdbRating,
     required String response,
-    required bool isWatched,
+    required String isWatched,
     required double userRating,
     required String userComment,
   }) : super.withFields(
@@ -97,7 +97,7 @@ class MovieDbModel extends BaseMovieModel {
     String? imdbRating,
     String? response,
     //user
-    bool? isWatched,
+    String? isWatched,
     double? userRating,
     String? userComment,
   }) =>
@@ -160,7 +160,7 @@ class MovieDbModel extends BaseMovieModel {
     data['Response'] = response;
     data['imdbRating'] = imdbRating;
     //user
-    data['isWatched'] = isWatched;
+    data['IsWatched'] = isWatched;
     data['userRating'] = userRating;
     data['userComment'] = userComment;
     return data;

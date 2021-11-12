@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
+import 'package:watchlist/core/database/database_manager.dart';
 
 import '../../../../core/constants/color/constant_colors.dart';
 import '../../../../core/constants/const_padding.dart';
@@ -29,20 +30,20 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
   List<String>? genres;
   bool? isDb;
 
-  void check() {
-    if (widget.model is MovieDbModel) {
-      isDb = true;
-    } else {
-      isDb = false;
-    }
-  }
-
   @override
   void initState() {
     check();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.bottom]);
     super.initState();
+  }
+
+  void check() {
+    if (widget.model is MovieDbModel) {
+      isDb = true;
+    } else {
+      isDb = false;
+    }
   }
 
   @override
@@ -64,26 +65,65 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
                     imdbRating: widget.model!.imdbRating!,
                   ),
                   const Padding(padding: padding20),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        TitleDirectorGenreView(
-                            title: widget.model!.title!,
-                            director: widget.model!.director!,
-                            genres: genres),
-                        const Padding(padding: padding20),
-                        PlotCard(text: widget.model!.plot!, size: size),
-                        const Padding(padding: padding20),
-                        !isDb!
-                            ? SaveButton(widget: widget, size: size)
-                            : Container(),
-                      ],
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                          icon: const Icon(Icons.done, color: Colors.red),
+                          onPressed: () {
+                            MovieDatabase.instance
+                                .setWatched(widget.model! as MovieDbModel);
+                          }),
+                    ],
                   ),
+                  MovieInformationView(
+                      genres: genres, size: size, widget: widget),
                   const Padding(padding: padding20),
                 ]),
               ),
+      ),
+    );
+  }
+}
+
+class MovieInformationView extends StatelessWidget {
+  MovieInformationView({
+    Key? key,
+    required this.widget,
+    required this.genres,
+    required this.size,
+  }) : super(key: key);
+
+  final MovieDetailsView widget;
+  final List<String>? genres;
+  final Size size;
+
+  bool? isDb;
+
+  void check() {
+    if (widget.model is MovieDbModel) {
+      isDb = true;
+    } else {
+      isDb = false;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    check();
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          TitleDirectorGenreView(
+              title: widget.model!.title!,
+              director: widget.model!.director!,
+              genres: genres),
+          const Padding(padding: padding20),
+          PlotCard(text: widget.model!.plot!, size: size),
+          const Padding(padding: padding20),
+          !isDb! ? SaveButton(widget: widget, size: size) : Container(),
+        ],
       ),
     );
   }

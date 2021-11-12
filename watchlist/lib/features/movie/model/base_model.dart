@@ -14,7 +14,7 @@ abstract class BaseMovieModel {
   String? imdbRating;
   String? response;
   //this data fields will be filled by the user
-  bool? isWatched;
+  String? isWatched;
   double? userRating;
   String? userComment;
 

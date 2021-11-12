@@ -47,6 +47,14 @@ mixin _$MovieDbListViewModel on _MovieDbListViewModelBase, Store {
     return _$getMoviesAsyncAction.run(() => super.getMovies());
   }
 
+  final _$getWatchedMoviesAsyncAction =
+      AsyncAction('_MovieDbListViewModelBase.getWatchedMovies');
+
+  @override
+  Future<void> getWatchedMovies() {
+    return _$getWatchedMoviesAsyncAction.run(() => super.getWatchedMovies());
+  }
+
   @override
   String toString() {
     return '''
